@@ -1,0 +1,15 @@
+Project Name: todo_backend
+
+Description: This is my first GO Lang project for study purpose
+
+Environment settings:
+  - Create .env file in the root folder and set environment variables according to configs/config.go file
+  - To install dependencies, go mod tidy
+  - Run script.sql in your SGDB
+
+Statistics:
+  - lines: 413
+  - files: 14
+  - folders: 4
+  - routes: 5
+  - average lines per file: 29
