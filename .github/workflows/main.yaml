@@ -2,30 +2,34 @@ name: todo_backend_pipeline
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
 
+  starting:
+    runs-on: ubuntu-latest
+    name: starting
+    steps:
+      - name: Starting
+        run: echo "starting"
+
   setup:
     runs-on: ubuntu-latest
     name: Setup
-    steps:              
-      - uses: actions/checkout@v4      
-      - name: checkout
-        run: echo "checkouting..."
-      
+    steps:
+      - uses: actions/checkout@v4
 
   deploy:
     runs-on: ubuntu-latest
     name: Upload files
-    steps:       
+    steps:
       - name: upload_files
-        uses: nogsantos/scp-deploy@master      
+        uses: nogsantos/scp-deploy@master
         with:
           src: './*'
           host: ${{ secrets.HOST_IP }}
-          remote: ${{ secrets.HOST_DIRECTORY }}          
+          remote: ${{ secrets.HOST_DIRECTORY }}
           port: ${{ secrets.HOST_PORT }}
-          user: ${{ secrets.HOST_USER }}          
+          user: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
