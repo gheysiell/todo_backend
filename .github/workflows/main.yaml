@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          script: |
+          script: |  
             cd ~/../opt
             chmod +x todo_backend
             ./todo_backend
