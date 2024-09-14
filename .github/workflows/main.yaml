@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.HOST_PASSWORD }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          source: "*"
+          source: "./docs.yaml"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
           debug: true
           rm: true
