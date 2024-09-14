@@ -25,10 +25,10 @@ jobs:
         with:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USER }}
-          password: ${{ secrets.HOST_PASSWORD }}
+          # password: ${{ secrets.HOST_PASSWORD }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           source: "*"
           target: "~/../opt"
-          debug: true
+          # debug: true
           rm: true
