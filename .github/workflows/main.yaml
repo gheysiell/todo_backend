@@ -9,7 +9,7 @@ jobs:
 
   starting:
     runs-on: ubuntu-latest
-    name: starting
+    name: Starting
     steps:
       - name: Starting
         run: echo "starting"
@@ -22,12 +22,12 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    name: Upload files
+    name: Publication
     steps:
-      - name: upload_files
+      - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
-          src: './*'
+          src: ./*
           host: ${{ secrets.HOST_IP }}
           remote: ${{ secrets.HOST_DIRECTORY }}
           port: ${{ secrets.HOST_PORT }}
