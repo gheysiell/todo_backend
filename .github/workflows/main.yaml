@@ -24,11 +24,9 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
-          username: ${{ secrets.HOST_USER }}
-          # password: ${{ secrets.HOST_PASSWORD }}
+          username: ${{ secrets.HOST_USER }}          
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           source: "*"
-          target: "~/../opt"
-          # debug: true
+          target: "~/../opt"          
           rm: true
