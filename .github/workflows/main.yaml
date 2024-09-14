@@ -45,4 +45,6 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          script: mkdir -p ~/../opt/testinho
+          script: |
+            mkdir -p ~/../opt/testinho
+            chmod +x myapp
