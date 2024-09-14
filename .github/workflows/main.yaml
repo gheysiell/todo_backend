@@ -18,12 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Setup
     steps:
-      - uses: actions/checkout@v4
-
-  deploy:
-    runs-on: ubuntu-latest
-    name: Publication
-    steps:
+      - uses: actions/checkout@v4    
       - name: see_files
         run: ls
       - name: after_see_files
@@ -38,4 +33,7 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           source: "*"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
-          overwrite: true
+          overwrite: true      
+
+  deploy:
+    runs-on: ubuntu-latest    
