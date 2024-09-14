@@ -47,6 +47,5 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           script: |
             cd ~/../opt
-            mkdir testinho
             chmod +x todo_backend
             ./todo_backend
