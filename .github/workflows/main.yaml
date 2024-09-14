@@ -24,6 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Publication
     steps:
+      - name: see_files
+        run: ls
+      - name: after_see_files
+        run: echo "__________________"
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
