@@ -28,7 +28,7 @@ jobs:
       runs-on: ubuntu-latest
       steps: 
         - name: upload_files
-          uses: actions/nogsantos/scp-deploy@master
+          uses: nogsantos/scp-deploy@master
           with:
             src: './*'
             remote: ${{ secrets.HOST_DIRECTORY }}
