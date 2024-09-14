@@ -36,6 +36,6 @@ jobs:
           password: ${{ secrets.HOST_PASSWORD }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          source: "./*"
+          source: "*"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
           overwrite: true
