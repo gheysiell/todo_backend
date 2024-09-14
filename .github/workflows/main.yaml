@@ -26,7 +26,7 @@ jobs:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USER }}          
           key: ${{ secrets.RSA_KEY }}
-          port: ${{ secrets.HOST_PORT }}          
-          source: "*"
+          port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
+          source: "*"
           rm: true
