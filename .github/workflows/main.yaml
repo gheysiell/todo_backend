@@ -28,5 +28,5 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
-          source: "*"
+          source: "./*"
           rm: true
