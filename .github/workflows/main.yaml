@@ -31,7 +31,4 @@ jobs:
           source: "*"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
           debug: true
-          rm: true      
-
-  deploy:
-    runs-on: ubuntu-latest    
+          rm: true
