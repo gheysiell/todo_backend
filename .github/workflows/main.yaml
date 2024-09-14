@@ -29,11 +29,11 @@ jobs:
       - name: after_see_files
         run: echo "__________________"
       - name: Publish
-        uses: nogsantos/scp-deploy@master
+        uses: appleboy/scp-action@v0.1.7
         with:
-          src: ./docs.yaml
           host: ${{ secrets.HOST_IP }}
-          remote: ${{ secrets.HOST_DIRECTORY }}
-          port: ${{ secrets.HOST_PORT }}
-          user: ${{ secrets.HOST_USER }}
+          username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
+          port: ${{ secrets.HOST_PORT }}
+          source: docs.yaml          
+          target: ./ # ${{ secrets.HOST_DIRECTORY }}
