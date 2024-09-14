@@ -7,32 +7,24 @@ on:
 
 jobs:
 
-  setup:
-    name: setup
+  setup:    
     runs-on: ubtuntu-latest    
-    steps:
-      - name: Set up go
-        uses: actions/setup-go@v3
+    name: setup
+    steps:      
+      - uses: actions/checkout@v4      
+      - name: checkout
+        run: echo "checkouting..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Upload files      
+    steps:       
+      - name: upload_files
+        uses: nogsantos/scp-deploy@master      
         with:
-          go-version: 1.22.5
-
-  checkout:  
-    name: check_out
-    runs-on: ubtuntu-latest
-    steps:
-      - name: first_checkout      
-        uses: actions/checkout@v3
-
-  deploy:        
-      name: Upload files
-      runs-on: ubuntu-latest
-      steps: 
-        - name: upload_files
-          uses: nogsantos/scp-deploy@master
-          with:
-            src: './*'
-            remote: ${{ secrets.HOST_DIRECTORY }}
-            host: ${{ secrets.HOST_IP }}
-            user: ${{ secrets.HOST_USER }}
-            port: ${{ secrets.HOST_PORT }}
-            key: ${{ secrets.RSA_KEY }}
+          src: './*'
+          host: ${{ secrets.HOST_IP }}
+          remote: ${{ secrets.HOST_DIRECTORY }}          
+          port: ${{ secrets.HOST_PORT }}
+          user: ${{ secrets.HOST_USER }}          
+          key: ${{ secrets.RSA_KEY }}
