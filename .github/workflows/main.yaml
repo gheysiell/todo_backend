@@ -11,9 +11,11 @@ jobs:
     runs-on: ubtuntu-latest    
     name: setup
     steps:      
-      - uses: actions/checkout@v4      
-      - name: checkout
+      - name: outra
         run: echo "checkouting..."
+      # - uses: actions/checkout@v4      
+      # - name: checkout
+      
 
   deploy:
     runs-on: ubuntu-latest
