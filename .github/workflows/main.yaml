@@ -18,12 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Setup
     steps:
-      - uses: actions/checkout@v4    
-      - name: see_files
-        run: ls
-      - name: after_see_files
-        run: echo "__________________"
-      - name: Publish
+      - uses: actions/checkout@v4                  
+      - run: echo "starting..."
+      - name: Deploy to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
@@ -33,7 +30,8 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           source: "*"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
-          overwrite: true      
+          debug: true
+          rm: true      
 
   deploy:
     runs-on: ubuntu-latest    
