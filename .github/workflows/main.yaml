@@ -29,6 +29,6 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           source: "./models/*"
-          target: ${{ secrets.HOST_DIRECTORY }}
+          target: "~/opt"
           debug: true
           rm: true
