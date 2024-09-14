@@ -27,8 +27,8 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           password: ${{ secrets.HOST_PASSWORD }}
           key: ${{ secrets.RSA_KEY }}
-          port: ${{ secrets.HOST_PORT }}          
+          port: ${{ secrets.HOST_PORT }}
+          source: "./docs.yaml"
           target: ${{ secrets.HOST_DIRECTORY }}
-          source: "docs.yaml"
           debug: true
           rm: true
