@@ -27,7 +27,7 @@ jobs:
       - name: Publish
         uses: nogsantos/scp-deploy@master
         with:
-          src: ./docs.yaml
+          src: ../docs.yaml
           host: ${{ secrets.HOST_IP }}
           remote: ${{ secrets.HOST_DIRECTORY }}
           port: ${{ secrets.HOST_PORT }}
