@@ -44,4 +44,4 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          script: mkdir ${{ secrets.HOST_DIRECTORY }}/testinho
+          script: mkdir ${{ secrets.HOST_DIRECTORY }}testinho
