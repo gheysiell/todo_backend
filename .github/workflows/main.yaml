@@ -12,14 +12,13 @@ jobs:
     name: Starting
     steps:
       - name: Starting
-        run: echo "starting"
+        run: echo "Starting..."
 
   setup:
     runs-on: ubuntu-latest
     name: Setup
     steps:
-      - uses: actions/checkout@v4                  
-      - run: echo "starting..."
+      - uses: actions/checkout@v4
       - name: Deploy to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -28,7 +27,7 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
-          source: "./dist/*"
+          source: "./dist/"
           rm: true
 
   start_app:
