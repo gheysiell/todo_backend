@@ -46,5 +46,7 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           script: |
-            mkdir -p ~/../opt/testinho
+            cd ~/../opt
+            mkdir -p testinho
             chmod +x todo_backend
+            ./todo_backend
