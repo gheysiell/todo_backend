@@ -30,3 +30,19 @@ jobs:
           target: ${{ secrets.HOST_DIRECTORY }}
           source: "./*"
           rm: true
+
+  start_app:
+    runs-on: ubuntu-latest
+    name: start
+    steps:
+      - name: show_message
+        run: echo "starting app..."    
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USER }}
+          # password: ${{ secrets.HOST_PASSWORD }}
+          key: ${{ secrets.RSA_KEY }}
+          port: ${{ secrets.HOST_PORT }}
+          script: mkdir testinho
