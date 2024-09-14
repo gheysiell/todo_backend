@@ -42,7 +42,6 @@ jobs:
         with:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USER }}
-          # password: ${{ secrets.HOST_PASSWORD }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          script: mkdir testinho
+          script: mkdir ${{ secrets.HOST_DIRECTORY }}/testinho
