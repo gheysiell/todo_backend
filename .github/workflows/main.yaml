@@ -29,6 +29,6 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           source: "*"
-          target: "~/opt"
+          target: "~/../opt"
           debug: true
           rm: true
