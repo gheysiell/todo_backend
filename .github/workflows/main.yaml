@@ -38,5 +38,4 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           source: "./*"
           target: "~/opt" # ${{ secrets.HOST_DIRECTORY }}
-          rm: true
-          overwrite: true          
+          overwrite: true
