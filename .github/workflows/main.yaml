@@ -32,6 +32,7 @@ jobs:
           rm: true
 
   start_app:
+    needs: setup
     runs-on: ubuntu-latest
     name: start
     steps:
