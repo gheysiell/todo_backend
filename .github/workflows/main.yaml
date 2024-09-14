@@ -7,19 +7,18 @@ on:
 
 jobs:
 
-  setup:    
-    runs-on: ubtuntu-latest    
-    name: setup
-    steps:      
-      - name: outra
+  setup:
+    runs-on: ubuntu-latest
+    name: Setup
+    steps:              
+      - uses: actions/checkout@v4      
+      - name: checkout
         run: echo "checkouting..."
-      # - uses: actions/checkout@v4      
-      # - name: checkout
       
 
   deploy:
     runs-on: ubuntu-latest
-    name: Upload files      
+    name: Upload files
     steps:       
       - name: upload_files
         uses: nogsantos/scp-deploy@master      
