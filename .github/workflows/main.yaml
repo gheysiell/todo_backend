@@ -35,5 +35,5 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          source: ./*
+          source: "docs.yaml"
           target: ./ # ${{ secrets.HOST_DIRECTORY }}
