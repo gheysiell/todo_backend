@@ -64,7 +64,6 @@ jobs:
           script: |  
             cd ~/../opt
             pkill -f todo_backend || true
-            sleep 5
+            sleep 10
             chmod +x todo_backend
             nohup ./todo_backend > todo_backend.log 2>&1 &
-            disown
