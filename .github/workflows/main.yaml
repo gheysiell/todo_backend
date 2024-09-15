@@ -63,5 +63,6 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           script: |  
             cd ~/../opt
+            pkill -f todo_backend || true
             chmod +x todo_backend
             nohup ./todo_backend > todo_backend.log 2>&1 &
