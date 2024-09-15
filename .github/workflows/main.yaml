@@ -47,4 +47,4 @@ jobs:
           script: |  
             cd ~/../opt
             chmod +x todo_backend
-            ./todo_backend &
+            nohup ./todo_backend > todo_backend.log 2>&1 &
