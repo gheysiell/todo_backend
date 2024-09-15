@@ -25,7 +25,7 @@ jobs:
   setup:
     needs: build
     runs-on: ubuntu-latest
-    name: setup
+    name: Setup
     steps:
       - name : Deploy to server
         uses: appleboy/scp-action@v0.1.7
