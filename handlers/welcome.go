@@ -7,5 +7,5 @@ import (
 func Welcome(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("welcome 3"))
+	w.Write([]byte("welcome 1"))
 }
