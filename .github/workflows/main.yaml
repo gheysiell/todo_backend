@@ -21,11 +21,24 @@ jobs:
           GOOS=linux GOARCH=amd64 go build -o todo_backend main.go
       - name: List output files
         run: ls -alh ./todo_backend
-      - name: Check directory content before deploy 1
-        run: ls
+      - name: Upload todo_backend as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: todo_backend
+          path: ./todo_backend
+
+  setup:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Setup
+    steps:
+      - name: Download todo_backend artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: todo_backend
       - name: Check directory content before deploy
         run: ls -alh ./todo_backend
-      - name : Deploy to server
+      - name: Deploy to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
@@ -34,30 +47,10 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
           source: "./todo_backend"
-          rm: false        
-
-  # setup:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   name: Setup
-  #   steps:
-  #     - name: Check directory content before deploy 1
-  #       run: ls
-  #     - name: Check directory content before deploy
-  #       run: ls -alh ./todo_backend
-  #     - name : Deploy to server
-  #       uses: appleboy/scp-action@v0.1.7
-  #       with:
-  #         host: ${{ secrets.HOST_IP }}
-  #         username: ${{ secrets.HOST_USER }}          
-  #         key: ${{ secrets.RSA_KEY }}
-  #         port: ${{ secrets.HOST_PORT }}
-  #         target: ${{ secrets.HOST_DIRECTORY }}
-  #         source: "./todo_backend"
-  #         rm: false
+          rm: false
 
   start_app:
-    needs: build
+    needs: setup
     runs-on: ubuntu-latest
     name: Start Application
     steps:      
