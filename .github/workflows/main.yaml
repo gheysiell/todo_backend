@@ -27,6 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Setup
     steps:
+      - name: Check directory content before deploy 1
+        run: ls
       - name: Check directory content before deploy
         run: ls -alh ./todo_backend
       - name : Deploy to server
