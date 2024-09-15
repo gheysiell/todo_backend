@@ -20,13 +20,15 @@ jobs:
         run: |
           GOOS=linux GOARCH=amd64 go build -o todo_backend main.go
       - name: List output files
-        run: ls -alh
+        run: ls -alh ./todo_backend
 
   setup:
     needs: build
     runs-on: ubuntu-latest
     name: Setup
     steps:
+      - name: Check directory content before deploy
+        run: ls -alh ./todo_backend
       - name : Deploy to server
         uses: appleboy/scp-action@v0.1.7
         with:
