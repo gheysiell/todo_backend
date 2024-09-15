@@ -28,10 +28,10 @@ jobs:
     name: Setup
     steps:
       - name: Check directory content before deploy 1
-        run: ls
-      - name: Check directory content before deploy
-        run: ls -alh ./todo_backend
-      - name : Deploy to server
+      #   run: ls
+      # - name: Check directory content before deploy
+      #   run: ls -alh ./todo_backend
+      # - name : Deploy to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
