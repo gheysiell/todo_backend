@@ -63,14 +63,17 @@ jobs:
           port: ${{ secrets.HOST_PORT }}
           script: |  
             cd ~/../opt
-
-            if pgrep -f todo_backend > /dev/null; then
-              echo "Process todo_backend its running. closing..."
-              pkill -f todo_backend
+                        
+            PID=$(sudo lsof -t -i :3001)
+            
+            if [ -n "$PID" ]; then
+              echo "Process in port 3001 found with PID $PID. Closing..."
+              sudo kill -9 $PID
               sleep 10
             else
-              echo "Process todo_backend is not running."
+              echo "No processes found on port 3001."
             fi
-
+            
             chmod +x todo_backend
             nohup ./todo_backend > todo_backend.log 2>&1 &
+            echo "Starting todo_backend"
