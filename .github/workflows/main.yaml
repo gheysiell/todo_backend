@@ -39,7 +39,7 @@ jobs:
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
-          source: "./todo_backend"
+          source: "./*"
           rm: false
 
   start_app:
