@@ -3,10 +3,9 @@ name: todo_backend_pipeline
 on:
   push:
     branches:
-      - master
+      - main
 
-jobs:  
-
+jobs:
   build:
     runs-on: ubuntu-latest
     name: Build Go for Linux
@@ -42,7 +41,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST_IP }}
-          username: ${{ secrets.HOST_USER }}          
+          username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
           target: ${{ secrets.HOST_DIRECTORY }}
@@ -53,7 +52,7 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     name: Start Application
-    steps:      
+    steps:
       - name: Executing remote SSH commands
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -61,18 +60,18 @@ jobs:
           username: ${{ secrets.HOST_USER }}
           key: ${{ secrets.RSA_KEY }}
           port: ${{ secrets.HOST_PORT }}
-          script: |  
+          script: |
             cd ~/../opt
                         
             PID=$(sudo lsof -t -i :3001)
-            
+
             if [ -n "$PID" ]; then
               echo "Process in port 3001 found with PID $PID. Closing..."
               sudo kill -9 $PID              
             else
               echo "No processes found on port 3001."
             fi
-            
+
             chmod +x todo_backend
             nohup ./todo_backend > todo_backend.log 2>&1 &
             echo "Starting todo_backend"
